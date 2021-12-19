@@ -3,7 +3,7 @@
     <img src="@/assets/logo.png" alt="#" width="256" />
     <div id="app-name">TypeRunner</div>
     <a
-      href="http://google.com"
+      :href="donwloadLink"
       target="_blank"
       rel="noopener noreferrer"
       class="install-button"
@@ -20,6 +20,12 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Home",
   components: {},
+  data() {
+    return {
+      donwloadLink:
+        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%20version1.0.0.dmg?alt=media&token=dc96004f-d57f-4db6-925d-55caeaf823b4",
+    };
+  },
 });
 </script>
 
