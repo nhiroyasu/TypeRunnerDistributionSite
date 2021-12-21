@@ -1,6 +1,6 @@
 <template>
   <a
-    :href="donwloadLink"
+    :href="downloadLink"
     target="_blank"
     rel="noopener noreferrer"
     class="install-button"
@@ -19,7 +19,7 @@ export default defineComponent({
   data() {
     return {
       downloadLink:
-        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%20version1.0.0.dmg?alt=media&token=dc96004f-d57f-4db6-925d-55caeaf823b4",
+        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=6b200f87-8140-4b2c-8897-1c5e1414caa0",
       appName: "TypeRunner",
       message: "Let's count your typing.",
     };
