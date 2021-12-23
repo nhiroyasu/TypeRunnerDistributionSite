@@ -29,6 +29,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import "@/styles/responsive.scss";
+@import "@/styles/color.scss";
 
 .install-button {
   display: flex;
@@ -43,7 +44,7 @@ export default defineComponent({
   cursor: pointer;
   transition: all 0.3s linear;
   text-decoration: none;
-  color: #1eb5a4;
+  color: $primary;
 
   @include if_md_greater {
     margin-top: 48px;
