@@ -7,7 +7,8 @@
           <div id="app-name">{{ appName }}</div>
         </div>
         <div id="app-message">{{ message }}</div>
-        <install-button />
+        <install-button id="install-button" />
+        <div class="app-support-version">{{ supportVersion }}</div>
       </div>
       <div class="side-images">
         <img src="@/assets/background-item1.png" alt="#" />
@@ -29,6 +30,7 @@
         <div class="text2 reveal">
           <div class="feature-number">Second</div>
           <div class="feature-text">Widget</div>
+          <div class="app-support-version">{{ widgetSupportVersion }}</div>
         </div>
         <div class="image3 reveal">
           <img src="@/assets/menu.png" alt="#" />
@@ -39,7 +41,8 @@
         </div>
       </div>
     </div>
-    <div class="message">Enjoy typing!</div>
+    <div class="message">{{ message2 }}</div>
+    <application-message class="application-message" />
     <div class="copy-right-group">
       <div class="app">
         <img src="@/assets/logo.png" alt="#" class="icon" />
@@ -50,31 +53,25 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { defineComponent, onMounted } from "vue";
 import InstallButton from "@/components/InstallButton.vue";
+import ApplicationMessage from "@/components/ApplicationMessage.vue";
 import ScrollReveal from "scrollreveal";
 
-export default defineComponent({
-  name: "Home",
-  components: {
-    InstallButton,
-  },
-  data() {
-    return {
-      appName: "TypeRunner",
-      message: "Let's count your typing.",
-      message2: "Enjoy typing !",
-    };
-  },
-  mounted() {
-    ScrollReveal().reveal(".reveal", {
-      duration: 1500,
-      distance: "100px",
-      opacity: 0,
-      viewFactor: 1.0,
-    });
-  },
+const appName = "TypeRunner";
+const message = "Let's count your typing.";
+const message2 = "Enjoy typing !";
+const supportVersion = "*macOS 11.2 later";
+const widgetSupportVersion = "*macOS 12 later";
+
+onMounted(() => {
+  ScrollReveal().reveal(".reveal", {
+    duration: 1500,
+    distance: "100px",
+    opacity: 0,
+    viewFactor: 1.0,
+  });
 });
 </script>
 
@@ -169,6 +166,15 @@ export default defineComponent({
     font-size: 1.4em;
     font-weight: bold;
   }
+
+  #install-button {
+    margin-bottom: 16px;
+  }
+}
+
+.app-support-version {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .description-group {
@@ -257,11 +263,15 @@ export default defineComponent({
       @include if_md_greater {
         align-self: center;
         justify-self: center;
-        text-align: center;
+        text-align: end;
         margin-top: 196px;
       }
       @include if_md_less {
         margin-top: 32px;
+      }
+
+      .app-support-version {
+        margin-top: 16px;
       }
     }
 
@@ -287,6 +297,10 @@ export default defineComponent({
       }
     }
   }
+}
+
+.application-message {
+  margin: 64px 0px;
 }
 
 .message {
