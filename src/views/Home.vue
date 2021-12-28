@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { onMounted } from "vue";
 import InstallButton from "@/components/InstallButton.vue";
 import ApplicationMessage from "@/components/ApplicationMessage.vue";
 import ScrollReveal from "scrollreveal";
