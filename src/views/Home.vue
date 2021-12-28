@@ -16,24 +16,24 @@
     <div class="description-group">
       <div class="title">Recording typing count</div>
       <div class="feature">
-        <div class="image1">
+        <div class="image1 reveal">
           <img src="@/assets/window.png" alt="#" width="100%" />
         </div>
-        <div class="text1">
+        <div class="text1 reveal">
           <div class="feature-number">First</div>
           <div class="feature-text">Typing History</div>
         </div>
-        <div class="image2">
+        <div class="image2 reveal">
           <img src="@/assets/widget.png" alt="#" width="100%" />
         </div>
-        <div class="text2">
+        <div class="text2 reveal">
           <div class="feature-number">Second</div>
           <div class="feature-text">Widget</div>
         </div>
-        <div class="image3">
+        <div class="image3 reveal">
           <img src="@/assets/menu.png" alt="#" />
         </div>
-        <div class="text3">
+        <div class="text3 reveal">
           <div class="feature-number">Third</div>
           <div class="feature-text">Menu</div>
         </div>
@@ -53,6 +53,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import InstallButton from "@/components/InstallButton.vue";
+import ScrollReveal from "scrollreveal";
 
 export default defineComponent({
   name: "Home",
@@ -65,6 +66,14 @@ export default defineComponent({
       message: "Let's count your typing.",
       message2: "Enjoy typing !",
     };
+  },
+  mounted() {
+    ScrollReveal().reveal(".reveal", {
+      duration: 1500,
+      distance: "100px",
+      opacity: 0,
+      viewFactor: 1.0,
+    });
   },
 });
 </script>
