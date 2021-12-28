@@ -11,16 +11,16 @@ onMounted(() => {
     if (container != null) {
       let offsetTop = Math.floor(container.getBoundingClientRect().top);
       if (offsetTop < position && oneShotFlag == false) {
-        oneShotFlag = true;
         anime({
           targets: ".btm",
           scaleX: [0, 1],
           scaleY: [0, 1],
-          opacity: [0, 1],
+          opacity: [0.5, 1],
           delay: anime.stagger(200, { grid: [14, 1], from: "center" }),
           duration: 300,
           easing: "easeOutSine",
         });
+        oneShotFlag = true;
       }
     }
   });
@@ -132,6 +132,7 @@ onMounted(() => {
   background-color: #1eb5a4;
   color: white;
   opacity: 0;
+  user-select: none;
 }
 
 .key {
