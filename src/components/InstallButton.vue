@@ -6,7 +6,7 @@
     class="install-button"
   >
     <img src="@/assets/save.svg" alt="#" />
-    <div>Install for macOS</div>
+    <div>ダウンロード</div>
   </a>
 </template>
 
@@ -20,8 +20,6 @@ export default defineComponent({
     return {
       downloadLink:
         "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=a5e4b7ef-e4ec-404a-a3f7-a89b5d25b10c",
-      appName: "TypeRunner",
-      message: "Let's count your typing.",
     };
   },
 });
@@ -36,9 +34,9 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   height: 48px;
-  background: #ffffff;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  background: #0f0f0f;
+  border-radius: 24px;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0px 32px;
   cursor: pointer;
@@ -54,13 +52,9 @@ export default defineComponent({
   }
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
-  }
-
-  &:hover {
-    box-shadow: 6px 6px 0px rgba($color: #007e70, $alpha: 0.8);
   }
 }
 </style>

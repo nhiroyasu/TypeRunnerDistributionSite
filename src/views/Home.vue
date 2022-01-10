@@ -4,7 +4,7 @@
       <div class="contents">
         <div class="app-name-wrapper">
           <img src="@/assets/logo.png" alt="#" width="256" />
-          <div id="app-name">{{ appName }}</div>
+          <div id="app-name" class="eng-font">{{ appName }}</div>
         </div>
         <div id="app-message">{{ message }}</div>
         <install-button id="install-button" />
@@ -15,21 +15,21 @@
       </div>
     </div>
     <div class="description-group">
-      <div class="title">Recording typing count</div>
+      <div class="title">{{ contentMessage }}</div>
       <div class="feature">
         <div class="image1 reveal">
-          <img src="@/assets/window.png" alt="#" width="100%" />
+          <img src="@/assets/preview/dashboard.png" alt="#" />
         </div>
         <div class="text1 reveal">
           <div class="feature-number">First</div>
-          <div class="feature-text">Typing History</div>
+          <div class="feature-text">{{ firstContentText }}</div>
         </div>
         <div class="image2 reveal">
-          <img src="@/assets/widget.png" alt="#" width="100%" />
+          <img src="@/assets/widget.png" alt="#" />
         </div>
         <div class="text2 reveal">
           <div class="feature-number">Second</div>
-          <div class="feature-text">Widget</div>
+          <div class="feature-text">{{ secondContentText }}</div>
           <div class="app-support-version">{{ widgetSupportVersion }}</div>
         </div>
         <div class="image3 reveal">
@@ -37,11 +37,11 @@
         </div>
         <div class="text3 reveal">
           <div class="feature-number">Third</div>
-          <div class="feature-text">Menu</div>
+          <div class="feature-text">{{ thirdContentText }}</div>
         </div>
       </div>
     </div>
-    <div class="message">{{ message2 }}</div>
+    <div class="message">{{ lastMessage }}</div>
     <application-message class="application-message" />
     <div class="copy-right-group">
       <div class="app">
@@ -60,10 +60,16 @@ import ApplicationMessage from "@/components/ApplicationMessage.vue";
 import ScrollReveal from "scrollreveal";
 
 const appName = "TypeRunner";
-const message = "Let's count your typing.";
-const message2 = "Enjoy typing !";
-const supportVersion = "*macOS 11.2 later";
-const widgetSupportVersion = "*macOS 12 later";
+const message = `いままでキーボードを叩いた数\n気にならない？`;
+const supportVersion = "*macOS 11.2 以降";
+const widgetSupportVersion = "*macOS 12 以降";
+
+const contentMessage = "タイピングを記録しよう！";
+const firstContentText = "ダッシュボード";
+const secondContentText = "ウィジェット";
+const thirdContentText = "メニュー";
+
+const lastMessage = "ENJOY TYPING!";
 
 onMounted(() => {
   ScrollReveal().reveal(".reveal", {
@@ -78,6 +84,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 @import "@/styles/responsive.scss";
 @import "@/styles/color.scss";
+@import "@/styles/classes.scss";
 
 .root {
   display: grid;
@@ -165,6 +172,7 @@ onMounted(() => {
   #app-message {
     font-size: 1.4em;
     font-weight: bold;
+    white-space: pre-line;
   }
 
   #install-button {
@@ -236,6 +244,10 @@ onMounted(() => {
       @include if_md_greater {
         justify-self: center;
       }
+
+      img {
+        width: 100%;
+      }
     }
 
     .text1 {
@@ -255,6 +267,10 @@ onMounted(() => {
       }
       @include if_md_less {
         margin-top: 16px;
+      }
+
+      img {
+        width: 100%;
       }
     }
 
