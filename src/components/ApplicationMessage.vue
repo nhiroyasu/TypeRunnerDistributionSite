@@ -320,12 +320,12 @@ function setMessageText(text: string): void {
 }
 
 .left-modify {
-  justify-content: left;
+  justify-content: flex-start;
   padding-left: 16px;
 }
 
 .right-modify {
-  justify-content: right;
+  justify-content: flex-end;
   padding-right: 16px;
 }
 
