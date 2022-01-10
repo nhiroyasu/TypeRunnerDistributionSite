@@ -4,12 +4,7 @@
       <div class="contents">
         <div id="app-message">{{ message }}</div>
         <div class="app-name-wrapper">
-          <img
-            class="image-shadow"
-            src="@/assets/logo.png"
-            alt="#"
-            width="256"
-          />
+          <img class="image-shadow" src="@/assets/logo.png" alt="#" />
           <div id="app-name" class="eng-font">{{ appName }}</div>
           <div class="app-short-description">{{ appShortDescription }}</div>
         </div>
@@ -279,7 +274,7 @@ onMounted(() => {
     .feature-description {
       color: #ffffff;
       font-size: 1.1rem;
-      white-space: pre;
+      white-space: pre-line;
       margin-top: 16px;
     }
 
@@ -359,6 +354,10 @@ onMounted(() => {
       }
     }
   }
+}
+
+.application-message {
+  width: 100%;
 }
 
 .copy-right-group {

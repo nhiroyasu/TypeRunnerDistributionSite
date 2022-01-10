@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import anime from "animejs";
-import func from "vue-temp/vue-editor-bridge";
 
 let oneShotFlag = false;
 
