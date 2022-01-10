@@ -7,7 +7,7 @@ let oneShotFlag = false;
 onMounted(() => {
   window.addEventListener("scroll", () => {
     const container = document.getElementById("container");
-    const position = Math.floor(window.innerHeight * 0.5);
+    const position = Math.floor(window.innerHeight - 64 * 4);
     if (container != null) {
       let offsetTop = Math.floor(container.getBoundingClientRect().top);
       if (offsetTop < position && oneShotFlag == false) {
