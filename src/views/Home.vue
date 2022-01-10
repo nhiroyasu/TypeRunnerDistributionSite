@@ -23,32 +23,34 @@
         <div class="text1 reveal">
           <div class="feature-number">First</div>
           <div class="feature-text">{{ firstContentText }}</div>
+          <div class="feature-description">{{ firstContentDescription }}</div>
         </div>
         <div class="image2 reveal">
-          <img src="@/assets/widget.png" alt="#" />
+          <img class="image-shadow" src="@/assets/widget.png" alt="#" />
         </div>
         <div class="text2 reveal">
           <div class="feature-number">Second</div>
           <div class="feature-text">{{ secondContentText }}</div>
+          <div class="feature-description">{{ secondContentDescription }}</div>
           <div class="app-support-version">{{ widgetSupportVersion }}</div>
         </div>
         <div class="image3 reveal">
-          <img src="@/assets/menu.png" alt="#" />
+          <img class="image-shadow" src="@/assets/menu.png" alt="#" />
         </div>
         <div class="text3 reveal">
           <div class="feature-number">Third</div>
           <div class="feature-text">{{ thirdContentText }}</div>
+          <div class="feature-description">{{ thirdContentDescription }}</div>
         </div>
       </div>
     </div>
-    <div class="message">{{ lastMessage }}</div>
     <application-message class="application-message" />
     <div class="copy-right-group">
       <div class="app">
         <img src="@/assets/logo.png" alt="#" class="icon" />
-        <div class="name">{{ appName }}</div>
+        <div class="name eng-font">{{ appName }}</div>
       </div>
-      <div class="copy-right">© Hiroyasu Niitsuma</div>
+      <div class="copy-right eng-font">© Hiroyasu Niitsuma</div>
     </div>
   </div>
 </template>
@@ -66,8 +68,11 @@ const widgetSupportVersion = "*macOS 12 以降";
 
 const contentMessage = "タイピングを記録しよう！";
 const firstContentText = "ダッシュボード";
+const firstContentDescription = `タイピングの記録をグラフやリストで可視化。\nアプリケーションごとの入力数も確認できます。`;
 const secondContentText = "ウィジェット";
+const secondContentDescription = `通知センターから、タイピング数をチェックできます。`;
 const thirdContentText = "メニュー";
+const thirdContentDescription = `メニューバーからリアルタイムでタイピング数を見ることができます。`;
 
 const lastMessage = "ENJOY TYPING!";
 
@@ -85,6 +90,7 @@ onMounted(() => {
 @import "@/styles/responsive.scss";
 @import "@/styles/color.scss";
 @import "@/styles/classes.scss";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 .root {
   display: grid;
@@ -238,6 +244,13 @@ onMounted(() => {
       font-size: 1.5em;
     }
 
+    .feature-description {
+      color: #ffffff;
+      font-size: 1.1rem;
+      white-space: pre;
+      margin-top: 16px;
+    }
+
     .image1 {
       grid-area: feature1-image;
       width: 100%;
@@ -263,6 +276,7 @@ onMounted(() => {
       grid-area: feature2-image;
       @include if_md_greater {
         justify-self: start;
+        align-self: center;
         margin-top: 196px;
       }
       @include if_md_less {
@@ -312,22 +326,6 @@ onMounted(() => {
         margin-top: 32px;
       }
     }
-  }
-}
-
-.application-message {
-  margin: 64px 0px;
-}
-
-.message {
-  font-weight: bold;
-  margin-top: 256px;
-
-  @include if_md_greater {
-    font-size: 5rem;
-  }
-  @include if_md_less {
-    font-size: 2rem;
   }
 }
 
