@@ -2,16 +2,26 @@
   <div class="root">
     <div class="top">
       <div class="contents">
-        <div class="app-name-wrapper">
-          <img src="@/assets/logo.png" alt="#" width="256" />
-          <div id="app-name" class="eng-font">{{ appName }}</div>
-        </div>
         <div id="app-message">{{ message }}</div>
+        <div class="app-name-wrapper">
+          <img
+            class="image-shadow"
+            src="@/assets/logo.png"
+            alt="#"
+            width="256"
+          />
+          <div id="app-name" class="eng-font">{{ appName }}</div>
+          <div class="app-short-description">{{ appShortDescription }}</div>
+        </div>
         <install-button id="install-button" />
         <div class="app-support-version">{{ supportVersion }}</div>
       </div>
       <div class="side-images">
-        <img src="@/assets/background-item1.png" alt="#" />
+        <img
+          id="mouse-transition-image"
+          src="@/assets/background-item1.png"
+          alt="#"
+        />
       </div>
     </div>
     <div class="description-group">
@@ -62,7 +72,8 @@ import ApplicationMessage from "@/components/ApplicationMessage.vue";
 import ScrollReveal from "scrollreveal";
 
 const appName = "TypeRunner";
-const message = `いままでキーボードを叩いた数\n気にならない？`;
+const appShortDescription = "タイピング回数記録アプリ";
+const message = `いままでキーボードを叩いた回数\n気にならない？`;
 const supportVersion = "*macOS 11.2 以降";
 const widgetSupportVersion = "*macOS 12 以降";
 
@@ -137,6 +148,7 @@ onMounted(() => {
 
   img {
     width: 80%;
+    transition: all 0.1s ease-in-out;
   }
 }
 
@@ -158,21 +170,34 @@ onMounted(() => {
   }
 
   .app-name-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-areas:
+      "img description"
+      "img name";
+    column-gap: 16px;
     align-items: center;
+    margin-top: 48px;
     margin-bottom: 8px;
 
     img {
+      grid-area: img;
       $icon-size: 96px;
       height: $icon-size;
       width: $icon-size;
     }
-  }
 
-  #app-name {
-    color: $primary;
-    font-size: 2em;
-    font-weight: bold;
+    #app-name {
+      grid-area: name;
+      color: $primary;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .app-short-description {
+      grid-area: description;
+      font-size: 0.9em;
+      color: $primary;
+    }
   }
 
   #app-message {
@@ -183,6 +208,13 @@ onMounted(() => {
 
   #install-button {
     margin-bottom: 16px;
+
+    @include if_md_greater {
+      margin-top: 16px;
+    }
+    @include if_md_less {
+      margin-top: 16px;
+    }
   }
 }
 

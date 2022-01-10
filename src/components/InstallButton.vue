@@ -57,13 +57,6 @@ export default defineComponent({
   text-decoration: none;
   color: $primary;
 
-  @include if_md_greater {
-    margin-top: 48px;
-  }
-  @include if_md_less {
-    margin-top: 16px;
-  }
-
   svg {
     width: 24px;
     height: 24px;
