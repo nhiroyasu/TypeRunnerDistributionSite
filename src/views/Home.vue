@@ -55,7 +55,15 @@
         <img src="@/assets/logo.png" alt="#" class="icon" />
         <div class="name eng-font">{{ appName }}</div>
       </div>
-      <div class="copy-right eng-font">© Hiroyasu Niitsuma</div>
+      <div class="copy-right eng-font">
+        <a
+          href="http://cyan-0fbcf9.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          © Hiroyasu Niitsuma
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -389,6 +397,11 @@ onMounted(() => {
   .copy-right {
     font-size: 1rem;
     text-align: center;
+
+    a {
+      text-decoration: underline;
+      color: #ffffff;
+    }
   }
 }
 </style>
