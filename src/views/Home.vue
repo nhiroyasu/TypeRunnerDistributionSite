@@ -21,6 +21,7 @@
     </div>
     <div class="description-group">
       <div class="title">{{ contentMessage }}</div>
+      <div class="sub-title">{{ contentSubMessage }}</div>
       <div class="feature">
         <div class="image1 reveal">
           <img src="@/assets/preview/dashboard.png" alt="#" />
@@ -81,6 +82,8 @@ const supportVersion = "*macOS 11.2 以降";
 const widgetSupportVersion = "*macOS 12 以降";
 
 const contentMessage = "タイピングを記録しよう！";
+const contentSubMessage =
+  "アプリを起動するだけでOK！\n記録したデータは様々な形で確認することが可能です";
 const firstContentText = "ダッシュボード";
 const firstContentDescription = `タイピングの記録をグラフやリストで可視化。\nアプリケーションごとの入力数も確認できます。`;
 const secondContentText = "ウィジェット";
@@ -227,7 +230,6 @@ onMounted(() => {
 }
 
 .description-group {
-  font-weight: bold;
   width: 100%;
 
   @include if_md_greater {
@@ -241,7 +243,14 @@ onMounted(() => {
     color: $primary;
     font-weight: bold;
     font-size: 1.5em;
+    margin-bottom: 24px;
+  }
+
+  .sub-title {
+    color: #ffffff;
+    font-size: 1.2rem;
     margin-bottom: 64px;
+    white-space: pre-line;
   }
 
   .feature {
@@ -272,11 +281,13 @@ onMounted(() => {
 
     .feature-number {
       color: $secondary;
+      font-weight: bold;
     }
 
     .feature-text {
       color: #ffffff;
       font-size: 1.5em;
+      font-weight: bold;
     }
 
     .feature-description {
