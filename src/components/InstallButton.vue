@@ -4,6 +4,7 @@
     target="_blank"
     rel="noopener noreferrer"
     class="install-button"
+    @click="didTapDownloadLink"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +26,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default defineComponent({
   name: "InstallButton",
@@ -34,6 +36,13 @@ export default defineComponent({
       downloadLink:
         "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=cc27a8c6-797e-4c89-863d-39a2ead163fc",
     };
+  },
+  methods: {
+    didTapDownloadLink() {
+      let analytics = getAnalytics();
+      logEvent(analytics, "didTapDownloadLink");
+      console.log("ログが送信されました");
+    },
   },
 });
 </script>
