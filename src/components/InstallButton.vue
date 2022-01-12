@@ -32,7 +32,7 @@ export default defineComponent({
   data() {
     return {
       downloadLink:
-        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=a5e4b7ef-e4ec-404a-a3f7-a89b5d25b10c",
+        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=cc27a8c6-797e-4c89-863d-39a2ead163fc",
     };
   },
 });
