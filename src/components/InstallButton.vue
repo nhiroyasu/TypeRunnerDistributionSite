@@ -41,7 +41,6 @@ export default defineComponent({
     didTapDownloadLink() {
       let analytics = getAnalytics();
       logEvent(analytics, "didTapDownloadLink");
-      console.log("ログが送信されました");
     },
   },
 });
