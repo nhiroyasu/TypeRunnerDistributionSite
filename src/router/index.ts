@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
-const TITLE = "TypeRunner - タイピング数を数えるアプリ";
+const TITLE =
+  "TypeRunner（タイプランナー） - いままでキーボードを叩いた回数数えます.";
 const DESCRIPTION = `いままで打ったキーボードの数、気になりませんか？
 TypeRunnerはそんな気になるタイピング数を記録するmacOSアプリです。`;
 
