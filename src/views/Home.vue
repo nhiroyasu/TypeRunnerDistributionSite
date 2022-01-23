@@ -4,12 +4,7 @@
       <div class="contents">
         <div id="app-message">{{ message }}</div>
         <div class="app-name-wrapper">
-          <img
-            class="image-shadow"
-            src="@/assets/logo.png"
-            alt="ロゴ"
-            loading="lazy"
-          />
+          <img class="image-shadow" src="@/assets/logo.png" alt="ロゴ" />
           <div id="app-name" class="eng-font">{{ appName }}</div>
           <div class="app-short-description">{{ appShortDescription }}</div>
         </div>
