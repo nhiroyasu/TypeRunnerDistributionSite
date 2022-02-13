@@ -72,11 +72,7 @@
         <div class="name eng-font">{{ appName }}</div>
       </div>
       <div class="copy-right eng-font">
-        <a
-          href="http://cyan-0fbcf9.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a :href="mySiteUrl" target="_blank" rel="noopener noreferrer">
           © Hiroyasu Niitsuma
         </a>
       </div>
@@ -106,7 +102,7 @@ const secondContentDescription = `通知センターから、タイピング数�
 const thirdContentText = "メニュー";
 const thirdContentDescription = `メニューバーからリアルタイムでタイピング数を見ることができます。`;
 
-const lastMessage = "ENJOY TYPING!";
+const mySiteUrl = "https://nhiroyasu.com";
 
 onMounted(() => {
   ScrollReveal().reveal(".reveal", {

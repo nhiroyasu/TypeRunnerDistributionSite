@@ -40,7 +40,9 @@ export default defineComponent({
   methods: {
     didTapDownloadLink() {
       let analytics = getAnalytics();
-      logEvent(analytics, "didTapDownloadLink");
+      logEvent(analytics, "didTapDownloadLink", {
+        day: Date.now(),
+      });
     },
   },
 });
