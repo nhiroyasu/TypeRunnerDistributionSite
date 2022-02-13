@@ -41,7 +41,7 @@ export default defineComponent({
     didTapDownloadLink() {
       let analytics = getAnalytics();
       logEvent(analytics, "didTapDownloadLink", {
-        day: Date.now(),
+        date: Date.now(),
       });
     },
   },
