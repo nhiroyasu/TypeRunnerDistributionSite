@@ -9,7 +9,7 @@
           <div class="app-short-description">{{ appShortDescription }}</div>
         </div>
         <install-button id="install-button" />
-        <div class="app-support-version">{{ supportVersion }}</div>
+        <div class="app-support-os-version">{{ supportOSVersion }}</div>
       </div>
       <div class="side-images">
         <img
@@ -25,11 +25,7 @@
       <div class="sub-title">{{ contentSubMessage }}</div>
       <div class="feature">
         <div class="image1 reveal">
-          <img
-            src="@/assets/preview/dashboard.png"
-            alt="ダッシュポード"
-            loading="lazy"
-          />
+          <img src="@/assets/preview/dashboard.png" alt="ダッシュポード" loading="lazy" />
         </div>
         <div class="text1 reveal">
           <div class="feature-number">First</div>
@@ -37,26 +33,16 @@
           <div class="feature-description">{{ firstContentDescription }}</div>
         </div>
         <div class="image2 reveal">
-          <img
-            class="image-shadow"
-            src="@/assets/widget.png"
-            alt="ウィジェット"
-            loading="lazy"
-          />
+          <img class="image-shadow" src="@/assets/widget.png" alt="ウィジェット" loading="lazy" />
         </div>
         <div class="text2 reveal">
           <div class="feature-number">Second</div>
           <div class="feature-text">{{ secondContentText }}</div>
           <div class="feature-description">{{ secondContentDescription }}</div>
-          <div class="app-support-version">{{ widgetSupportVersion }}</div>
+          <div class="app-support-os-version">{{ widgetSupportOSVersion }}</div>
         </div>
         <div class="image3 reveal">
-          <img
-            class="image-shadow"
-            src="@/assets/menu.png"
-            alt="メニュー"
-            loading="lazy"
-          />
+          <img class="image-shadow" src="@/assets/menu.png" alt="メニュー" loading="lazy" />
         </div>
         <div class="text3 reveal">
           <div class="feature-number">Third</div>
@@ -72,9 +58,7 @@
         <div class="name eng-font">{{ appName }}</div>
       </div>
       <div class="copy-right eng-font">
-        <a :href="mySiteUrl" target="_blank" rel="noopener noreferrer">
-          © Hiroyasu Niitsuma
-        </a>
+        <a :href="mySiteUrl" target="_blank" rel="noopener noreferrer">© Hiroyasu Niitsuma</a>
       </div>
     </div>
   </div>
@@ -89,8 +73,9 @@ import ScrollReveal from "scrollreveal";
 const appName = "TypeRunner";
 const appShortDescription = "タイピング回数記録アプリ";
 const message = `いままでキーボードを叩いた回数\n気にならない？`;
-const supportVersion = "*macOS 11.2 以降";
-const widgetSupportVersion = "*macOS 12 以降";
+const supportOSVersion = "*macOS 11.2 以降";
+const widgetSupportOSVersion = "*macOS 12 以降";
+const latestVersion = "1.1.0";
 
 const contentMessage = "タイピングを記録しよう！";
 const contentSubMessage =
@@ -235,7 +220,12 @@ onMounted(() => {
   }
 }
 
-.app-support-version {
+.app-version {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.app-support-os-version {
   font-size: 16px;
   font-weight: bold;
 }
