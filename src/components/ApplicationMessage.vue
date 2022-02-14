@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import anime from "animejs";
 
 let oneShotFlag = false;
+let analytics = getAnalytics();
 
 onMounted(() => {
   window.addEventListener("scroll", () => {
@@ -11,11 +13,18 @@ onMounted(() => {
     if (container != null) {
       let offsetTop = Math.floor(container.getBoundingClientRect().top);
       if (offsetTop < position && oneShotFlag == false) {
+        sendEvent();
         startShowingKeyboard();
       }
     }
   });
 });
+
+function sendEvent() {
+  logEvent(analytics, "showApplicationMessage", {
+    date: Date.now(),
+  });
+}
 
 function startShowingKeyboard() {
   oneShotFlag = true;
@@ -276,19 +285,45 @@ function setMessageText(text: string): void {
   </div>
   <div class="container reveal" id="container">
     <div class="number-line line">
-      <div class="btm key"><span>`</span></div>
-      <div class="btm key key-1"><span>1</span></div>
-      <div class="btm key"><span>2</span></div>
-      <div class="btm key"><span>3</span></div>
-      <div class="btm key"><span>4</span></div>
-      <div class="btm key"><span>5</span></div>
-      <div class="btm key"><span>6</span></div>
-      <div class="btm key"><span>7</span></div>
-      <div class="btm key"><span>8</span></div>
-      <div class="btm key"><span>9</span></div>
-      <div class="btm key"><span>0</span></div>
-      <div class="btm key"><span>-</span></div>
-      <div class="btm key"><span>=</span></div>
+      <div class="btm key">
+        <span>`</span>
+      </div>
+      <div class="btm key key-1">
+        <span>1</span>
+      </div>
+      <div class="btm key">
+        <span>2</span>
+      </div>
+      <div class="btm key">
+        <span>3</span>
+      </div>
+      <div class="btm key">
+        <span>4</span>
+      </div>
+      <div class="btm key">
+        <span>5</span>
+      </div>
+      <div class="btm key">
+        <span>6</span>
+      </div>
+      <div class="btm key">
+        <span>7</span>
+      </div>
+      <div class="btm key">
+        <span>8</span>
+      </div>
+      <div class="btm key">
+        <span>9</span>
+      </div>
+      <div class="btm key">
+        <span>0</span>
+      </div>
+      <div class="btm key">
+        <span>-</span>
+      </div>
+      <div class="btm key">
+        <span>=</span>
+      </div>
       <div class="btm delete modify right-modify">
         <img src="@/assets/keyboard/backspace.svg" alt="#" />
       </div>
@@ -298,36 +333,84 @@ function setMessageText(text: string): void {
       <div class="btm tab modify left-modify">
         <img src="@/assets/keyboard/tab.svg" alt="#" />
       </div>
-      <div class="btm key"><span>Q</span></div>
-      <div class="btm key"><span>W</span></div>
-      <div class="btm key key-e"><span>E</span></div>
-      <div class="btm key"><span>R</span></div>
-      <div class="btm key key-t"><span>T</span></div>
-      <div class="btm key key-y"><span>Y</span></div>
-      <div class="btm key key-u"><span>U</span></div>
-      <div class="btm key key-i"><span>I</span></div>
-      <div class="btm key key-o"><span>O</span></div>
-      <div class="btm key key-p"><span>P</span></div>
-      <div class="btm key"><span>[</span></div>
-      <div class="btm key"><span>]</span></div>
-      <div class="btm key"><span>|</span></div>
+      <div class="btm key">
+        <span>Q</span>
+      </div>
+      <div class="btm key">
+        <span>W</span>
+      </div>
+      <div class="btm key key-e">
+        <span>E</span>
+      </div>
+      <div class="btm key">
+        <span>R</span>
+      </div>
+      <div class="btm key key-t">
+        <span>T</span>
+      </div>
+      <div class="btm key key-y">
+        <span>Y</span>
+      </div>
+      <div class="btm key key-u">
+        <span>U</span>
+      </div>
+      <div class="btm key key-i">
+        <span>I</span>
+      </div>
+      <div class="btm key key-o">
+        <span>O</span>
+      </div>
+      <div class="btm key key-p">
+        <span>P</span>
+      </div>
+      <div class="btm key">
+        <span>[</span>
+      </div>
+      <div class="btm key">
+        <span>]</span>
+      </div>
+      <div class="btm key">
+        <span>|</span>
+      </div>
     </div>
 
     <div class="second-line line">
       <div class="btm caplock modify left-modify">
         <img src="@/assets/keyboard/capslock.svg" alt="#" />
       </div>
-      <div class="btm key key-a"><span>A</span></div>
-      <div class="btm key"><span>S</span></div>
-      <div class="btm key"><span>D</span></div>
-      <div class="btm key"><span>F</span></div>
-      <div class="btm key key-g"><span>G</span></div>
-      <div class="btm key key-h"><span>H</span></div>
-      <div class="btm key key-j"><span>J</span></div>
-      <div class="btm key key-k"><span>K</span></div>
-      <div class="btm key"><span>L</span></div>
-      <div class="btm key"><span>;</span></div>
-      <div class="btm key"><span>'</span></div>
+      <div class="btm key key-a">
+        <span>A</span>
+      </div>
+      <div class="btm key">
+        <span>S</span>
+      </div>
+      <div class="btm key">
+        <span>D</span>
+      </div>
+      <div class="btm key">
+        <span>F</span>
+      </div>
+      <div class="btm key key-g">
+        <span>G</span>
+      </div>
+      <div class="btm key key-h">
+        <span>H</span>
+      </div>
+      <div class="btm key key-j">
+        <span>J</span>
+      </div>
+      <div class="btm key key-k">
+        <span>K</span>
+      </div>
+      <div class="btm key">
+        <span>L</span>
+      </div>
+      <div class="btm key">
+        <span>;</span>
+      </div>
+      <div class="btm key">
+        <span>'</span>
+      </div>
       <div class="btm enter modify right-modify">
         <img src="@/assets/keyboard/return.svg" alt="#" />
       </div>
@@ -337,16 +420,36 @@ function setMessageText(text: string): void {
       <div class="btm shift shift-left modify left-modify">
         <img src="@/assets/keyboard/shift.svg" alt="#" />
       </div>
-      <div class="btm key"><span>Z</span></div>
-      <div class="btm key"><span>X</span></div>
-      <div class="btm key"><span>C</span></div>
-      <div class="btm key"><span>V</span></div>
-      <div class="btm key"><span>B</span></div>
-      <div class="btm key key-n"><span>N</span></div>
-      <div class="btm key"><span>M</span></div>
-      <div class="btm key"><span>,</span></div>
-      <div class="btm key"><span>.</span></div>
-      <div class="btm key"><span>/</span></div>
+      <div class="btm key">
+        <span>Z</span>
+      </div>
+      <div class="btm key">
+        <span>X</span>
+      </div>
+      <div class="btm key">
+        <span>C</span>
+      </div>
+      <div class="btm key">
+        <span>V</span>
+      </div>
+      <div class="btm key">
+        <span>B</span>
+      </div>
+      <div class="btm key key-n">
+        <span>N</span>
+      </div>
+      <div class="btm key">
+        <span>M</span>
+      </div>
+      <div class="btm key">
+        <span>,</span>
+      </div>
+      <div class="btm key">
+        <span>.</span>
+      </div>
+      <div class="btm key">
+        <span>/</span>
+      </div>
       <div class="btm shift shift-right modify right-modify">
         <img src="@/assets/keyboard/shift.svg" alt="#" />
       </div>

@@ -20,7 +20,7 @@
         style="stroke-dashoffset: 10px"
       />
     </svg>
-    <div>ダウンロード</div>
+    <div>{{ buttonTitle }}</div>
   </a>
 </template>
 
@@ -34,13 +34,16 @@ export default defineComponent({
   data() {
     return {
       downloadLink:
-        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.0.0.dmg?alt=media&token=cc27a8c6-797e-4c89-863d-39a2ead163fc",
+        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.1.0.dmg?alt=media&token=6f8ca70f-fa0c-4774-8b04-40a911d1792d",
+      buttonTitle: "最新版ダウンロード",
     };
   },
   methods: {
     didTapDownloadLink() {
       let analytics = getAnalytics();
-      logEvent(analytics, "didTapDownloadLink");
+      logEvent(analytics, "didTapDownloadLink", {
+        date: Date.now(),
+      });
     },
   },
 });
