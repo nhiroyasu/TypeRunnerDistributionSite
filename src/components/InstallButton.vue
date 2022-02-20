@@ -34,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       downloadLink:
-        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.1.0.dmg?alt=media&token=6f8ca70f-fa0c-4774-8b04-40a911d1792d",
+        "https://firebasestorage.googleapis.com/v0/b/typerunner.appspot.com/o/distribution%2FTypeRunnerInstaller%201.1.1.dmg?alt=media&token=1826e20a-509b-444e-b006-c6a9f3af1f2b",
       buttonTitle: "最新版ダウンロード",
     };
   },
